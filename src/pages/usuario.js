@@ -1,3 +1,6 @@
+//Aquí va forms, para agregar imagen, box que redirecciona al inicio y box con menu a las 4 paginas
+
+
 import Layout from "./layout/layout";
 import { useState } from 'react';
 import Link from 'next/link';
