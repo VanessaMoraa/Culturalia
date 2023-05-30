@@ -1,4 +1,4 @@
-import Layout from "./layout/layout";
+import Layout from "../layout/layout";
 import { useState } from 'react';
 import Link from 'next/link';
 
