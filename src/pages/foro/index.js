@@ -31,7 +31,7 @@ export default function Foro() {
     };
 
     const navigateToHome = () => {
-        router.push('/inicio');
+        router.push('/');
     };
 
     return (

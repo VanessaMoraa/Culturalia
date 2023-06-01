@@ -1,8 +1,11 @@
 
 import React from 'react';
-
+import Menu from '@/components/menu';
 const Layout = ({ children }) => {
-    return <div>{children}</div>;
+    return <>
+    <Menu/>
+    {children}
+    </>
 };
 
 export default Layout;

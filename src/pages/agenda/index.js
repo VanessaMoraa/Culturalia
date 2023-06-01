@@ -22,7 +22,7 @@ export default function Agenda() {
   };
 
   const navigateToHome = () => {
-    router.push('/inicio');
+    router.push('/');
   };
 
   return (

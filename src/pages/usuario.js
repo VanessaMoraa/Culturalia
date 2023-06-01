@@ -28,7 +28,7 @@ export default function Usuario() {
     };
 
     const navigateToHome = () => {
-        router.push('/inicio');
+        router.push('/');
     };
 
     const handleInputChange = (e) => {

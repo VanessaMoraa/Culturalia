@@ -64,7 +64,7 @@ function Tarjeta({ nombre, identificacion, correo, avatar }) {
     };
   
     const navigateToHome = () => {
-      router.push('/inicio');
+      router.push('/');
     };
   
     return (
