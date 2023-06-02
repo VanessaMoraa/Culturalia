@@ -4,7 +4,8 @@ import Menu from '@/components/menu';
 const Layout = ({ children }) => {
     return <>
     <Menu/>
-    {children}
+    <div style={{display: "flex",width: "100vw", justifyContent: "center"}}>{children}
+    </div>
     </>
 };
 
