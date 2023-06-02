@@ -44,6 +44,7 @@ const places = [
     },
     {
         title: "Bahia Solano",
+<<<<<<< HEAD
         description: "Tiene unos paisajes inimaginables, la selva húmeda se siente a flor de piel, el sol da un calor húmedo y las lluvias generan una increíble necesidad de adentrarse en el mar",
         image: "/Bahia Solano.jpg"
     },
@@ -51,6 +52,15 @@ const places = [
         title: "Islas de los Monos",
         description: "Se trata de un centro de rescate ubicado a 30 km de Iquitos, donde lo único que se respira es vegetación y libertad. Aquí pasarás divertidos e inolvidables momentos en compañía de muchos monitos que viven temporalmente en este lugar",
         image: "/Islas del mico.jpg"
+=======
+        description: "Tiene unos paisajes inimaginables, la selva húmeda se siente a flor de piel, el sol da un calor húmedo y las lluvias generan una increíble necesidad de adentrarse en el mar"
+        //Falta imagen 
+    },
+    {
+        title: "Islas de los Monos",
+        description: "Se trata de un centro de rescate ubicado a 30 km de Iquitos, donde lo único que se respira es vegetación y libertad. Aquí pasarás divertidos e inolvidables momentos en compañía de muchos monitos que viven temporalmente en este lugar"
+        //Falta imagen 
+>>>>>>> 727b4ef581b3715fc40a68202e4279645592d6f5
     },
 ]
 export default function Foro() {
