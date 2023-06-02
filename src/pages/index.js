@@ -39,12 +39,12 @@ const places = [
     },
     {
         title: "Bahia Solano",
-        description: "llllllll"
+        description: "Tiene unos paisajes inimaginables, la selva húmeda se siente a flor de piel, el sol da un calor húmedo y las lluvias generan una increíble necesidad de adentrarse en el mar"
         //Falta imagen 
     },
     {
-        title: "Piedra el Peñol 6",
-        description: "llllllll"
+        title: "Islas de los Monos",
+        description: "Se trata de un centro de rescate ubicado a 30 km de Iquitos, donde lo único que se respira es vegetación y libertad. Aquí pasarás divertidos e inolvidables momentos en compañía de muchos monitos que viven temporalmente en este lugar"
         //Falta imagen 
     },
 ]
