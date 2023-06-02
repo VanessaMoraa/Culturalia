@@ -35,22 +35,22 @@ const places = [
     {
         title: "La Candelaria",
         description: "La Candelaria como centro histórico cultural se fortaleció con el proceso de descentralización política, administrativa y fiscal de Santa Fe de Bogotá, D.C., mediante la ley primera de 1992, que reglamentó la división territorial del Distrito",
-        image: "/Mina de sal.jpg"
+        image: "/Candelaria.jpg"
     },
     {
         title: "Finlandia",
         description: "Se sitúa en la cima de una colina que ofrece vistas panorámicas de algunos de los paisajes más magníficos del eje cafetero",
-        image: "/Mina de sal.jpg"
+        image: "/finlandia.jpg"
     },
     {
         title: "Bahia Solano",
         description: "Tiene unos paisajes inimaginables, la selva húmeda se siente a flor de piel, el sol da un calor húmedo y las lluvias generan una increíble necesidad de adentrarse en el mar",
-        image: "/Mina de sal.jpg"
+        image: "/Bahia Solano.jpg"
     },
     {
         title: "Islas de los Monos",
         description: "Se trata de un centro de rescate ubicado a 30 km de Iquitos, donde lo único que se respira es vegetación y libertad. Aquí pasarás divertidos e inolvidables momentos en compañía de muchos monitos que viven temporalmente en este lugar",
-        image: "/Mina de sal.jpg"
+        image: "/Islas del mico.jpg"
     },
 ]
 export default function Foro() {
