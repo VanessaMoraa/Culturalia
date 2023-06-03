@@ -5,104 +5,213 @@ import Layout from "../layout/layout";
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import './perfiles.css';
 
+export default function Perfiles() {
+  const perfiles = [
+    { nombre: 'Perfiles destacados', ruta: '/perfiles' },
+    { nombre: 'Agenda cultural', ruta: '/agenda' },
+    { nombre: 'Foro', ruta: '/foro' },
+    { nombre: 'Usuario', ruta: '/usuario' },
+  ];
 
-function Tarjeta({ nombre, identificacion, correo, avatar }) {
-    const cardStyles = {
-      background: "rgb(49,43,145)",
-      background: "linear-gradient(169deg, rgba(49,43,145,0.7483368347338936) 0%, rgba(9,85,121,0.46262254901960786) 43%, rgba(0,212,255,1) 91%)",
-      color: "white",
-      boxShadow: "10px 10px 6px 0px rgba(255,255,255,0.22)",
-    };
-  
-    const avatarStyles = {
-      width: "80px",
-      height: "80px",
-    };
-  
+  const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const navigateToHome = () => {
+    router.push('/');
+  };
+
+  function Tarjeta({ nombre, identificacion, correo, avatar, conoce }) {
     return (
-      <div
-        className="w-full max-w-md p-4 mb- bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700"
-        style={cardStyles}
-      >
+      <div className="tarjeta">
+        <div className="flex justify-end px-4 pt-4"></div>
         <div className="flex justify-end px-4 pt-4"></div>
         <div className="flex justify-end px-4 pt-4"></div>
         <div className="flex flex-col items-center pb-10">
           <img
-            className="w-12 h-12 mb-3 rounded-full shadow-lg"
+            className="w-12 h-12 mb- rounded-full shadow-lg"
             src={avatar}
             alt="Imagen de perfil"
-            style={avatarStyles}
           />
-          <h5 className="mb-1 text-xl font-medium text-white-900 dark:text-white">
+          <h5 className="mb-1 text-xl font-medium text-white-900">
             {nombre}
           </h5>
-          <span className="text-sm text-white-500 dark:text-white-400">
-            {identificacion}
-          </span>
-          <span className="text-sm text-white-500 dark:text-white-400">
-            {correo}
-          </span>
+          <div className="text-sm text-white-500">
+            <span>{correo}</span>
+          </div>
+          <div className="text-sm text-white-500">
+            <span>{identificacion}</span>
+          </div>
+          <div className="text-sm text-white-500">
+            <span>{conoce}</span>
+          </div>
+          <form>
+            <p className="clasificacion">
+              <input id="radio1" type="radio" name="estrellas" value="5" checked />
+              <label htmlFor="radio1">★</label>
+              <input id="radio2" type="radio" name="estrellas" value="4" />
+              <label htmlFor="radio2">★</label>
+              <input id="radio3" type="radio" name="estrellas" value="3" />
+              <label htmlFor="radio3">★</label>
+              <input id="radio4" type="radio" name="estrellas" value="2" />
+              <label htmlFor="radio4">★</label>
+              <input id="radio5" type="radio" name="estrellas" value="1" />
+              <label htmlFor="radio5">★</label>
+            </p>
+          </form>
         </div>
       </div>
     );
   }
-  
-  export default function Perfiles() {
-    const perfiles = [
-      { nombre: 'Perfiles destacados', ruta: '/perfiles' },
-      { nombre: 'Agenda cultural', ruta: '/agenda' },
-      { nombre: 'Foro', ruta: '/foro' },
-      { nombre: 'Usuario', ruta: '/usuario' },
-    ];
-  
-    const [isOpen, setIsOpen] = useState(false);
-    const router = useRouter();
-  
-    const toggleMenu = () => {
-      setIsOpen(!isOpen);
-    };
-  
-    const navigateToHome = () => {
-      router.push('/');
-    };
-  
-    return (
-      <Layout>
-        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <button onClick={toggleMenu}>Abrir menú</button>
-          {isOpen && (
-            <div
-              style={{
-                position: 'absolute',
-                top: '30px',
-                right: '0',
-                background: '#fff',
-                border: '1px solid #ccc',
-                padding: '10px',
-                zIndex: '100',
-              }}
-            >
-              <ul>
-                {perfiles.map((perfil, index) => (
-                  <li key={index}>
-                    <Link href={perfil.ruta}>{perfil.nombre}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
-        <div className="mt-8">
-          <button onClick={navigateToHome}>Inicio</button>
-        </div>
-  
+
+  return (
+    <Layout>
+      <div className="mt-6">
+        <button onClick={navigateToHome}>InicioFuncional</button>
+      </div>
+
+      <div className="tarjetas-container">
         <Tarjeta
-          nombre="Nombre de ejemplo"
-          identificacion="ID de ejemplo"
-          correo="correo@example.com"
-          avatar="ruta/al/avatar.jpg"
+          nombre="Michael Lawson"
+          identificacion="Nómada digital"
+          correo="michael.lawson@reqres.in"
+          conoce="Trabajo y viajo alrededor del mundo, recomiendo los mejores sitios para nómadas digitales como yo."
+          avatar="https://reqres.in/img/faces/7-image.jpg"
         />
-      </Layout>
-    );
-  }
+
+        <Tarjeta
+          nombre="Rachel Howell"
+          identificacion="Foodie"
+          correo="rachel.howell@reqres.in"
+          conoce="Todo sobre comidas tipicas a un buen precio."
+          avatar="https://reqres.in/img/faces/12-image.jpg"
+        />
+
+        <Tarjeta
+          nombre="Lindsay Ferguson"
+          identificacion="Viajera"
+          correo="lindsay.ferguson@reqres.in"
+          conoce="Te recomiendo los mejores y más económicos lugares culturales."
+          avatar="https://reqres.in/img/faces/8-image.jpg"
+        />
+
+        <Tarjeta
+          nombre="Tobias Funke"
+          identificacion="Gestor cultural"
+          correo="tobias.funke@reqres.in"
+          conoce="Desde mi experiencia te comparto las mejores experiencias culturales."
+          avatar="https://reqres.in/img/faces/9-image.jpg"
+        />
+
+
+        <Tarjeta
+          nombre="Byron Fields"
+          identificacion="Influencer"
+          correo="byron.fields@reqres.in"
+          conoce="Todo tipo de experiencia cultural recomendado por mis seguidores."
+          avatar="https://reqres.in/img/faces/10-image.jpg"
+        />
+
+
+
+        <Tarjeta
+          nombre="George Edwards"
+          identificacion="Cinéfilo"
+          correo="george.edwards@reqres.in"
+          conoce="Te recomiendo todo sobre el cine y la cultura."
+          avatar="https://reqres.in/img/faces/11-image.jpg"
+        />
+
+
+
+        <Tarjeta
+          nombre="Tobias Funke"
+          identificacion="Gestor cultural"
+          correo="tobias.funke@reqres.in"
+          conoce="Desde mi experiencia te comparto las mejores experiencias culturales."
+          avatar="https://reqres.in/img/faces/9-image.jpg"
+        />
+
+        <Tarjeta
+          nombre="George Edwards"
+          identificacion="Cinéfilo"
+          correo="george.edwards@reqres.in"
+          conoce="Te recomiendo todo sobre el cine y la cultura."
+          avatar="https://reqres.in/img/faces/11-image.jpg"
+        />
+
+        <Tarjeta
+          nombre="Michael Lawson"
+          identificacion="Nómada digital"
+          correo="michael.lawson@reqres.in"
+          conoce="Trabajo y viajo alrededor del mundo, recomiendo los mejores sitios para nómadas digitales como yo."
+          avatar="https://reqres.in/img/faces/7-image.jpg"
+        />
+
+        <Tarjeta
+          nombre="Rachel Howell"
+          identificacion="Foodie"
+          correo="rachel.howell@reqres.in"
+          conoce="Todo sobre comidas tipicas a un buen precio."
+          avatar="https://reqres.in/img/faces/12-image.jpg"
+        />
+
+        <Tarjeta
+          nombre="Byron Fields"
+          identificacion="Influencer"
+          correo="byron.fields@reqres.in"
+          conoce="Todo tipo de experiencia cultural recomendado por mis seguidores."
+          avatar="https://reqres.in/img/faces/10-image.jpg"
+        />
+
+        <Tarjeta
+          nombre="Tobias Funke"
+          identificacion="Gestor cultural"
+          correo="tobias.funke@reqres.in"
+          conoce="Desde mi experiencia te comparto las mejores experiencias culturales."
+          avatar="https://reqres.in/img/faces/9-image.jpg"
+        />
+
+        <Tarjeta
+          nombre="Rachel Howell"
+          identificacion="Foodie"
+          correo="rachel.howell@reqres.in"
+          conoce="Todo sobre comidas tipicas a un buen precio."
+          avatar="https://reqres.in/img/faces/12-image.jpg"
+        />
+
+        <Tarjeta
+          nombre="George Edwards"
+          identificacion="Cinéfilo"
+          correo="george.edwards@reqres.in"
+          conoce="Te recomiendo todo sobre el cine y la cultura."
+          avatar="https://reqres.in/img/faces/11-image.jpg"
+        />
+
+        <Tarjeta
+          nombre="Michael Lawson"
+          identificacion="Nómada digital"
+          correo="michael.lawson@reqres.in"
+          conoce="Trabajo y viajo alrededor del mundo, recomiendo los mejores sitios para nómadas digitales como yo."
+          avatar="https://reqres.in/img/faces/7-image.jpg"
+        />
+
+        <Tarjeta
+          nombre="Lindsay Ferguson"
+          identificacion="Viajera"
+          correo="lindsay.ferguson@reqres.in"
+          conoce="Te recomiendo los mejores y más económicos lugares culturales."
+          avatar="https://reqres.in/img/faces/8-image.jpg"
+
+        />
+
+
+      </div>
+    </Layout>
+  );
+}

@@ -1,7 +1,7 @@
 //Aquí va forms, para agregar imagen, box que redirecciona al inicio y box con menu a las 4 paginas
 
 
-import Layout from "./layout/layout";
+import Layout from "../layout/layout";
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -18,7 +18,7 @@ export default function Usuario() {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        message: ''
+        duda: ''
     });
 
     const router = useRouter();
@@ -45,36 +45,13 @@ export default function Usuario() {
 
     return (
         <Layout>
-            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                <button onClick={toggleMenu}>Abrir menú</button>
-                {isOpen && (
-                    <div
-                        style={{
-                            position: 'absolute',
-                            top: '30px',
-                            right: '0',
-                            background: '#fff',
-                            border: '1px solid #ccc',
-                            padding: '10px',
-                            zIndex: '100',
-                        }}
-                    >
-                        <ul>
-                            {perfiles.map((perfil, index) => (
-                                <li key={index}>
-                                    <Link href={perfil.ruta}>{perfil.nombre}</Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                )}
-            </div>
+         
             <div>
-                <button onClick={navigateToHome}>Inicio</button>
+                <button onClick={navigateToHome}>InicioFuncional</button>
             </div>
 
             <div style={{ width: '800px', padding: '40px', border: '5px solid #ccc', borderRadius: '10px' }}>
-                <h1 style={{ marginBottom: '20px' }}>Registrate aquí</h1>
+                <h1 style={{ marginBottom: '20px' }}>¿Tienes dudas sobre tu usuario?</h1>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-6">
                         <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre:</label>
@@ -84,14 +61,12 @@ export default function Usuario() {
                         <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email:</label>
                         <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} className="input-style" required />
                     </div>
-                  
-                   
                     <div className="mb-6">
-                        <p> Selecciona una imagen en alta calidad </p>
-                        <label htmlFor="user_avatar" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
-                        <input type="file" id="user_avatar" className="file-input-style" />
-
+                        <label htmlFor="duda" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Escribe aquí tu problema:</label>
+                        <input type="duda" id="duda" name="duda" value={formData.duda} onChange={handleInputChange} className="input-style" required />
                     </div>
+                   
+                
                     <button type="submit" className="button-style">Enviar</button>
                 </form>
             </div>
